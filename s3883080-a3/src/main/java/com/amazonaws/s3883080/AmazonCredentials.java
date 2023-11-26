@@ -6,9 +6,9 @@ public class AmazonCredentials {
     private String sessionToken;
 
     public AmazonCredentials() {
-        this.accessKey = "ASIAZIRAM6QCNDX6VQ5S";
-        this.secretAccessKey = "8kcEFIXNuvI6o8pxxKl5lOxNlT04uzAiXRfYj5nf";
-        this.sessionToken = "FwoGZXIvYXdzEDEaDIfYjcny9aWRpKNJVyK+AYc9kkskdfl/cbFC9vcJ5xyzOvgyCgLPJLm56TvbJFDqBTwnt/dw+Xa0ATMbLLzN3qHDHtKYai9vRdppZj0/Ve+cUjCSUNC3B2PtdNyMEexTCo69wEBYU6XKhmXBlD9UEWh3aSDQLiY9G7RIbiLy9mvbwq03/V3/xrsBqjIb3pqUbLVmhGEfZUwICA7Xii/amvNGHf49dJPjg+gWyF+ffSWBFBNYuXcrbpIA03euLhGxEr2YeLAjSdKo2ndmmxsosJ6IqwYyLQoWoSMWwlHms95IJpE8R5yio44d0J7T+ShwUr2tquPpIHdbugcRjRlSpvBMfA==";
+        this.accessKey = "ASIAZIRAM6QCHG47EVG4";
+        this.secretAccessKey = "3p92b+Xc5HvVBCr1zJTiKQYyTLvwhl0RZtVuJG4R";
+        this.sessionToken = "FwoGZXIvYXdzEEMaDDM/TEkPzk+HYwZGdCK+ATwses2FoFfkwKkn3UO8KcfSKtqluqLUIZcvVHmnhZE8d50n82UOd2az5tQAWlx/F8PcySx5qMDVQQkv9bo7oJ8tejSn99IsuVFZ7EuRIpchdC8dE6xv9Vnm5Af3T6CuqJ3EBFSa8sgwIvXwkKO2dQ7GNiiPFaWU5eTZLL223u+YxEXrHWno329WQGQFrHz4ana8IPmTzh3XpCC61JFcpIGONC7yyDyIeKASubDbDnc19JUM+woanvdAra03Hsso6p+MqwYyLdRS0l2AWpzMV1kLQPq9pHm55eVXeAn0dE+ZIomAHLLTIlsYhEwCljGGOpOPOQ==";
     }
 
     public String getAccessKey() {

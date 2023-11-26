@@ -5,43 +5,24 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class JsonUtility {
-    public static Map<String, String> createHeaders(){
-        Map<String,String> headers = new HashMap<>();
-        headers.put("Content-Type","application/json");
-        return headers;
+    public static Map<String, String> generateHeaders(){
+        Map<String,String> generateHeaders = new HashMap<>();
+        generateHeaders.put("Content-Type","application/json");
+        generateHeaders.put("X-amazon-apiVersion","v1");
+        generateHeaders.put("X-amazon-author","peter");
+        return generateHeaders;
     }
 
     public static String convertObjToString(Receipt receipt, Context context) {
-        String jsonBody = null;
+        String bodyOfJsonData = null;
         try {
-            jsonBody = new ObjectMapper().writeValueAsString(receipt);
+            bodyOfJsonData = new ObjectMapper().writeValueAsString(receipt);
         } catch (JsonProcessingException e) {
             System.out.print(e.getMessage());
         }
-        return jsonBody;
-    }
-
-    public static Receipt convertStringToObj(String jsonBody, Context context) {
-        Receipt receipt = null;
-        try {
-            receipt = new ObjectMapper().readValue(jsonBody,Receipt.class);
-        } catch (JsonProcessingException e) {
-            System.out.print(e.getMessage());
-        }
-        return receipt;
-    }
-
-    public static String convertListOfObjToString(List<Receipt> receipts, Context context){
-        String jsonBody = null;
-        try {
-            jsonBody = new ObjectMapper().writeValueAsString(receipts);
-        } catch (JsonProcessingException e) {
-            System.out.print(e.getMessage());
-        }
-        return jsonBody;
+        return bodyOfJsonData;
     }
 }

@@ -47,7 +47,8 @@
 <div>
 <%
     String address = "https://5ypb4pab6e.execute-api.us-east-1.amazonaws.com/beta/receipts/?buyer=" + user.getEmail();
-        out.print("Welcome " + user.getUsername() + "<br>" + email + "<br><br><a href=\"" + address + "\">Find my Receipts</a>");
+        out.print("Welcome " + user.getUsername() + "<br>" + email + "<br><br><form action='https://5ypb4pab6e.execute-api.us-east-1.amazonaws.com/beta/receipts/' method='GET'><input type='hidden' id='buyer' name='buyer' value='" + user.getEmail() + "'><input type='submit' value='Find my Receipts'></form>");
+        // <a href=\"" + address + "\">Find my Receipts</a>");
         %>
     <form action="${pageContext.request.contextPath}/logoutServlet" method="POST">
         <input type='submit' value='Logout'>

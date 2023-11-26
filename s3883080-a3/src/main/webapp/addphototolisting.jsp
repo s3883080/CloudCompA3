@@ -18,12 +18,13 @@
 
 <%
     String photoKey = (String) session.getAttribute("itemKey");
+    photoKey = photoKey + ".jpg";
 %>
 
 <fieldset>
-    <form action="/s3883080a3/addPhotoServlet" method="POST" enctype="multipart/form-data"><br>
-        Attach Photo:<br>
-        <input type="file" id="myFile" name="myFile"><br><br>
+    <form action="${pageContext.request.contextPath}/addPhotoServlet" method="POST"><br>
+        <label for='imageUrl'>Image URL: </label><br>
+        <input type='text' id='imageUrl' name='imageUrl' required><br><br>
         <input type="hidden" id="photokey" value="<%out.print(photoKey);%>">
         <input type='submit' value='Attach photo to Advertisement'><br>
     </form>

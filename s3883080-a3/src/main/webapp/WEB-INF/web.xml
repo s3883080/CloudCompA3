@@ -16,6 +16,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>AddPhotoServlet</servlet-name>
+    <servlet-class>com.amazonaws.s3883080.AddPhotoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddPhotoServlet</servlet-name>
+    <url-pattern>/addPhotoServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>RegistrationServlet</servlet-name>
     <servlet-class>com.amazonaws.s3883080.RegistrationServlet</servlet-class>
   </servlet>

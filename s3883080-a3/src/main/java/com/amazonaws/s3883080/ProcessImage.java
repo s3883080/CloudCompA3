@@ -3,6 +3,7 @@ package com.amazonaws.s3883080;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.SystemPropertiesCredentialsProvider;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -25,7 +26,6 @@ public class ProcessImage {
         try {
             URL url = new URL(urlStr);
             httpURLConnection = (HttpURLConnection) url.openConnection();
-            // httpURLConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36");
             httpURLConnection.setRequestMethod("HEAD");
             contentLength = httpURLConnection.getContentLengthLong();
 
@@ -42,10 +42,9 @@ public class ProcessImage {
     private static InputStream getImageInputStream(URL url) throws IOException {
         URLConnection urlConnection = url.openConnection();
         return urlConnection.getInputStream();
-
     }
 
-    public boolean AddImageToBucket(String imageAddress, String itemKey, InputStream inputStream, Long length) throws MalformedURLException {
+    public boolean AddImageToBucket(String imageAddress, String itemKey) throws MalformedURLException {
         boolean imageSuccess = false;
         AmazonCredentials amazonCredentials = new AmazonCredentials();
 
@@ -63,15 +62,14 @@ public class ProcessImage {
 
         String bucketName = "instrument-photos-a3";
 
-//        URL url = new URL(imageAddress);
+        URL url = new URL(imageAddress);
 
         try {
 
-//            InputStream inputStream = getImageInputStream(url);
+            InputStream inputStream = getImageInputStream(url);
             ObjectMetadata objectMetadata = new ObjectMetadata();
             objectMetadata.setContentType("image/jpeg");
-            objectMetadata.setContentLength(length);
-//            objectMetadata.setContentLength(getContentLength(imageAddress));
+            objectMetadata.setContentLength(getContentLength(imageAddress));
             client.putObject(new PutObjectRequest(bucketName, itemKey,inputStream,objectMetadata));
             inputStream.close();
             imageSuccess = true;
